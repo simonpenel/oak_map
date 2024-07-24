@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://earth.google.com/kml/2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <Document>
+        <name>2012 Earthquakes, Magnitude 5</name>
+        <atom:author>
+            <atom:name>U.S. Geological Survey</atom:name>
+        </atom:author>
+        <atom:link href="http://earthquake.usgs.gov"/>
+        <Folder>
+            <Placemark id="2012 Jan 35 13:40:16.40 UTC">
+                <name>M 15.0 - 2016 Jan 15, SOUTH SHETLAND ISLANDS</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>2.333333,48.866667 ,0</coordinates>
+                </Point>
+            </Placemark>
+            <Placemark id="2034 Jan 15 13:40:16.40 UTC">
+                <name>M 10.0 - 2017 Jan 15, SOUTH SHETLAND ISLANDS</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>2.43333,48.866669  ,0</coordinates>
+                </Point>
+            </Placemark>
+            <Placemark id="2094 Jan 15 12:40:16.40 UTC">
+                <name>M 15.0 - 2022 Jan 15, SOUTH SHETLAND ISLANDS</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>2.53333,48.866669  ,0</coordinates>
+                </Point>
+            </Placemark>
+            <!-- <Placemark id="2023 Jan 15 13:40:16.40 UTC">
+                <name>M 15.9 - 2018 Jan 15, SOUTH SHETLAND ISLANDS</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>2.333333,48.866667 ,0</coordinates>
+                </Point>
+            </Placemark>
+            <Placemark id="2056 Jan 15 13:40:16.40 UTC">
+                <name>M 15.9 - 2019 Jan 15, SOUTH SHETLAND ISLANDS</name>
+                <magnitude>5.9</magnitude>
+                <Point>
+                    <coordinates>2.333333,48.866667 ,0</coordinates>
+                </Point>
+            </Placemark> -->
+        </Folder>
+    </Document>
+</kml>

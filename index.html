@@ -4,16 +4,53 @@
     <meta charset="UTF-8">
     <title>Earthquakes Heatmap</title>
     <link rel="stylesheet" href="node_modules/ol/ol.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css">
     <style>
       .map {
         width: 100%;
-        height: 400px;
+        height: 600px;
+      }
+      #tools {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+      }
+      #tools a {
+        display: inline-block;
+        padding: 0.5rem;
+        background: white;
+        cursor: pointer;
+      }
+      #marker {
+        width: 20px;
+        height: 20px;
+        border: 1px solid #088;
+        border-radius: 10px;
+        background-color: #0FF;
+        opacity: 0.5;
+      }
+      #vienna {
+        text-decoration: none;
+        color: white;
+        font-size: 11pt;
+        font-weight: bold;
+        text-shadow: black 0.1em 0.1em 0.2em;
+      }
+      .popover-body {
+        min-width: 276px;
       }
     </style>
   </head>
   <body>
     <div id="map" class="map"></div>
-    <form>
+    <div style="display: none;">
+      <!-- Clickable label for Vienna -->
+      <a class="overlay" id="vienna" target="_blank" href="https://en.wikipedia.org/wiki/Vienna">Vienna</a>
+      <div id="marker" title="Marker"></div>
+      <!-- Popup -->
+      <div id="popup"></div>
+    </div>
+    <!-- <form>
       <label for="radius1">radius 1 size</label>
       <input id="radius1" type="range" min="1" max="50" step="1" value="5"/>
 
@@ -23,7 +60,11 @@
       <label for="blur">blur size</label>
       <input id="blur" type="range" min="1" max="50" step="1" value="15"/>
     </form>
-
+    <div id="tools">
+      <a id="clear">Clear</a>
+      <a id="download" download="features.json">Download</a>
+    </div> -->
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
     <script type="module" src="main.js"></script>
   </body>
 </html>
