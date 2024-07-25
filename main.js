@@ -40,6 +40,12 @@ client.onload = function () {
         mass: parseFloat(line[1]) || 0,
         year: parseInt(line[2]) || 0,
         geometry: new Point(coords),
+        style:  new Style({
+          stroke: new Stroke({
+          color: "red",
+          width: 7,
+          }),
+        }),
       })
     );
   }
@@ -114,7 +120,7 @@ map.on('click', function (evt) {
     content: '<p>The location you clicked was:</p><code>' + feature.values_.name + '</code>',
     html: true,
     placement: 'top',
-    title: 'Welcome to OpenLayers',
+    title: 'OpenLayers',
   });
   popover.show();
 });
