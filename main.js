@@ -83,6 +83,7 @@ client.send();
 
 // Definit le layer meteorite
 const meteorites = new VectorLayer({
+  name: "meteo",
   source: source,
 });
 
@@ -158,3 +159,16 @@ map.on('click', function (evt) {
 });
 //Keep the map view stable:
 map.addInteraction(new Link());
+
+document.getElementById("format").addEventListener("change", changeVisibility);
+
+function changeVisibility() {
+    var layer_name = this.value;
+    map.getLayers().forEach(function(lyr) {
+        // console.log(lyr.get('name'));
+        if (lyr.get('name') === layer_name) {
+          var is_visible = lyr.get('visible');
+          lyr.setVisible(!is_visible);
+        }
+    });
+}
