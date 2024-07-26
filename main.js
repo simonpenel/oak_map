@@ -121,11 +121,8 @@ const popup = new Overlay({
 map.addOverlay(popup);
 
 
-
 // Definit element
 const element = document.getElementById('popup');
-
-
 
 map.on('click', function (evt) {
   const coordinate = evt.coordinate;
@@ -134,18 +131,26 @@ map.on('click', function (evt) {
   const feature = map.forEachFeatureAtPixel(evt.pixel, function (feature) {
       return feature;
     });
-  console.log(feature.values_);
-  let popover = bootstrap.Popover.getInstance(element);
-  if (popover) {
-    popover.dispose();
+  if (feature)  {
+    console.log(feature.values_);
+    let popover = bootstrap.Popover.getInstance(element);
+    if (popover) {
+      popover.dispose();
+    }
+    popover = new bootstrap.Popover(element, {
+      animation: false,
+      container: element,
+      content: '<p>The location you clicked was:</p><code>' + feature.values_.name + '</code>',
+      html: true,
+      placement: 'top',
+      title: 'OpenLayers',
+    });
+    popover.show();
   }
-  popover = new bootstrap.Popover(element, {
-    animation: false,
-    container: element,
-    content: '<p>The location you clicked was:</p><code>' + feature.values_.name + '</code>',
-    html: true,
-    placement: 'top',
-    title: 'OpenLayers',
-  });
-  popover.show();
+  else {
+    let popover = bootstrap.Popover.getInstance(element);
+    if (popover) {
+      popover.dispose();
+    }
+  };
 });
