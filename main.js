@@ -11,6 +11,8 @@ import {fromLonLat, toLonLat} from 'ol/proj.js';
 import {toStringHDMS} from 'ol/coordinate.js';
 import {Circle, Fill, Stroke, Style} from 'ol/style.js';
 
+import Link from 'ol/interaction/Link';
+
 // Definit une source vide
 const source = new VectorSource();
 
@@ -41,13 +43,13 @@ client.onload = function () {
         color: 'red'
         })
       });
-
-
+ let col = "red";
+  if (parseFloat(line[1]) > 1000){ col = "pink"}
   const style =   new Style({
   image: new Circle({
     radius:  7,
     fill: new Fill({
-      color: "red",
+      color: col,
     }),
     stroke: new Stroke({
       color: "blue",
@@ -154,3 +156,5 @@ map.on('click', function (evt) {
     }
   };
 });
+//Keep the map view stable:
+map.addInteraction(new Link());
