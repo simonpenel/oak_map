@@ -10,11 +10,9 @@ Si il s'agit de la première installation, (cf https://openlayers.org/doc/quicks
 ```
 npm create ol-app my-app
 cd my-app
-ln -s ../main.js .
-ln -s ../style.css .
-ln -s ../index.html .
-ln -s ../data .
+cp ../main.js .
+cp  ../style.css .
+cp  ../index.html .
+cp -r  ../data .
 npm start
 ```
-
-
