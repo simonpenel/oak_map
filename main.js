@@ -172,3 +172,16 @@ function changeVisibility() {
         }
     });
 }
+
+document.getElementById("meteorits").addEventListener("change", changeVisibility2);
+
+function changeVisibility2() {
+    var layer_name = this.value;
+    map.getLayers().forEach(function(lyr) {
+        // console.log(lyr.get('name'));
+        if (lyr.get('name') === "meteo") {
+          var is_visible = lyr.get('visible');
+          lyr.setVisible(!is_visible);
+        }
+    });
+}
