@@ -1,6 +1,7 @@
 import Feature from 'ol/Feature';
 import OSM from 'ol/source/OSM.js';
 import Point from 'ol/geom/Point';
+//import {Circle as Cercle} from 'ol/geom/Circle';
 import TileLayer from 'ol/layer/Tile';
 import VectorLayer from 'ol/layer/Vector';
 import {Map, View} from 'ol';
@@ -8,7 +9,7 @@ import {Vector as VectorSource} from 'ol/source';
 import Overlay from 'ol/Overlay.js';
 import {fromLonLat, toLonLat} from 'ol/proj.js';
 import {toStringHDMS} from 'ol/coordinate.js';
-
+import {Circle, Fill, Stroke, Style} from 'ol/style.js';
 
 // Definit une source vide
 const source = new VectorSource();
@@ -33,21 +34,45 @@ client.onload = function () {
       // guard against bad data
       continue;
     }
+    const point = new Point(coords);
 
-    features.push(
-      new Feature({
+    const style1 = new Style({
+      fill: new Fill({
+        color: 'red'
+        })
+      });
+
+
+  const style =   new Style({
+  image: new Circle({
+    radius:  7,
+    fill: new Fill({
+      color: "red",
+    }),
+    stroke: new Stroke({
+      color: "blue",
+      width:1,
+    }),
+  }),
+  zIndex: Infinity,
+});
+
+    const feat =   new Feature({
         name: line[0],
         mass: parseFloat(line[1]) || 0,
         year: parseInt(line[2]) || 0,
-        geometry: new Point(coords),
-        style:  new Style({
-          stroke: new Stroke({
-          color: "red",
-          width: 7,
-          }),
-        }),
-      })
-    );
+        geometry: new Point(coords)});
+
+    feat.setStyle(style);
+    features.push(
+      feat
+    //   new Feature({
+    //     name: line[0],
+    //     mass: parseFloat(line[1]) || 0,
+    //     year: parseInt(line[2]) || 0,
+    //     geometry: new Point(coords),
+    //   })
+     );
   }
   source.addFeatures(features);
 };
@@ -124,5 +149,3 @@ map.on('click', function (evt) {
   });
   popover.show();
 });
-
-
